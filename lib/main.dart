@@ -1,39 +1,41 @@
 import 'package:flutter/material.dart';
 
-var data = "I am writing flutter program";
-var myText = Text(
-  data,
-
-  style: TextStyle(
-    backgroundColor: Colors.green,
-    fontSize: 40,
-    color: Colors.red,
-    fontStyle: FontStyle.italic,
-  ),
-);
-
 void main() {
-  runApp(MaterialApp(home: Home()));
+  runApp(const MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return const MaterialApp(debugShowCheckedModeBanner: false, home: Home());
+  }
 }
 
 class Home extends StatelessWidget {
+  const Home({super.key});
+
   @override
   Widget build(BuildContext context) {
-    return Text("Hello World");
+    return Scaffold(
+      body: SafeArea(
+        child: Center(
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              const Text("Home Page", style: TextStyle(fontSize: 22)),
+              const SizedBox(height: 20),
+              ElevatedButton(
+                onPressed: () {
+                  // button action
+                },
+                child: const Text("Go to Home Page and dashboard"),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
   }
 }
-// class MyApp extends StatelessWidget {
-//   const MyApp({super.key});
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return MaterialApp(
-//       debugShowCheckedModeBanner: false,
-//       home: Scaffold(
-//         appBar: AppBar(title: const Text('My First Flutter App')),
-//         body: const Center(
-//           child: Text('Hello hello 👋', style: TextStyle(fontSize: 26)),
-//         ),
-//       ),
-//     );
-//   }}
